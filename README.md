@@ -1,6 +1,4 @@
-# External Unified Checkout SDK Integration Documentation
-
-## Overview
+# Hubtel Web Merchant  Checkout SDK 
 
 The Checkout SDK provide seamless way for businesses to accept payment from their customers. The SDK offers three primary methods of integration: Redirect, Iframe, and Modal. This provides flexibility for developers to choose the integration method that best suits their needs.
 
@@ -249,3 +247,17 @@ const openIframe = () => {
 | `onFeesChanged`       | function | Called when the the user select a different payment channel                                                                           |
 | `onClose`             | function | Called when the the modal is closed.                                                                   |
 | `onResize`             | function | Called when the iframe have been resized closed.                                                                   |
+
+## Contribution
+
+We welcome contributions from the developer community to improve the Hubtel Checkout SDK. To contribute:
+
+1. **Fork the Repository**: Start by forking the Hubtel Checkout SDK repository on GitHub.
+
+2. **Create a Feature Branch**: Create a new branch for your feature or bugfix.
+
+3. **Implement Your Changes**: Make your code changes or improvements.
+
+4. **Write Tests**: Write tests for your code changes or improvements.
+
+5. **Submit a Pull Request**: Push your changes to your forked repository and submit a pull request for review.
