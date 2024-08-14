@@ -73,7 +73,7 @@ interface Config {
    * @requires
    * The integration type. This can be either "Internal" or "External".
    */
-  integrationType: "Internal" | "External";
+  integrationType?: "Internal" | "External" | null;
 
 }
 
@@ -236,9 +236,9 @@ class CheckoutSdk {
     const iframe = document.createElement("iframe");
     iframe.src = this.createCheckoutUrl(purchaseInfo, config);
     iframe.style.display = "none";
-    iframe.style.width = iframeStyle?.width || "100%";
-    iframe.style.height = iframeStyle?.height || "100%";
-    iframe.style.border = iframeStyle?.border || "none";
+    iframe.style.width = iframeStyle?.width ?? "100%";
+    iframe.style.height = iframeStyle?.height ?? "100%";
+    iframe.style.border = iframeStyle?.border ?? "none";
     iframe.onload = () => {
       iframeContainer.removeChild(loadingIcon);
       iframe.style.display = "block";
@@ -262,8 +262,7 @@ class CheckoutSdk {
     this.registerEvents(callBacks);
     this.renderWebpageInPopup(
       this.createCheckoutUrl(purchaseInfo, config),
-      // callBacks.onClose,
-      callBacks.onLoad,
+      callBacks.onClose,
       callBacks.onLoad
     );
   }
@@ -329,11 +328,8 @@ class CheckoutSdk {
     document.body.appendChild(modal);
     modal.style.opacity = "0";
     iframe.addEventListener("load", () => {
-      if (onLoad) {
-        onLoad();
-      }
-
       modal.style.opacity = "1";
+      onLoad?.();
     });
   }
 

@@ -1,6 +1,6 @@
 {
-  "name": "hubtel-checkout",
-  "version": "1.0.6",
+  "name": "@hubteljs/checkout",
+  "version": "1.0.7",
   "description": "A JavaScript SDK for handling checkout processes.",
   "main": "dist/CheckoutSdk.js",
   "types": "dist/CheckoutSdk.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/isaac_afful/hubtel-checkout"
+    "url": "https://github.com/hubtel/hubtel-web-merchant-checkout-sdk.git"
   },
   "keywords": [
     "checkout",
@@ -22,5 +22,8 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "user": "^0.0.0"
   }
 }
