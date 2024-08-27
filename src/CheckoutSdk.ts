@@ -268,12 +268,20 @@ class CheckoutSdk {
   }
 
   private createCheckoutUrl(purchaseInfo: PurchaseInfo, config: Config): string {
-    const checkoutData = { ...purchaseInfo, ...config };
-    const queryString = Object.keys(checkoutData)
-      .map((key) => `${key}=${encodeURIComponent((checkoutData as { [key: string]: any })[key])}`)
+    const checkoutData: Record<string, any> = { ...purchaseInfo, ...config };
+
+    const filteredData = Object.keys(checkoutData).reduce((acc, key) => {
+      if (checkoutData[key] !== null && checkoutData[key]  !== undefined) {
+        acc[key] = checkoutData[key];
+      }
+      return acc;
+    }, {} as { [key: string]: any });
+
+    const queryString = Object.keys(filteredData)
+      .map((key) => `${key}=${encodeURIComponent(filteredData[key])}`)
       .join("&");
     const url =
-      checkoutData?.branding === "disabled"
+    filteredData?.branding === "disabled"
         ? `${this.baseUrl}/pay/direct`
         : `${this.baseUrl}/pay`;
     return `${url}?${queryString}`;
@@ -338,9 +346,7 @@ class CheckoutSdk {
     const backdrop = document.querySelector(".backdrop");
     const modal = document.querySelector(".checkout-modal");
     if (backdrop) {
-      console.log(backdrop);
       document.body.removeChild(backdrop);
-
     }
     if (modal) {
       document.body.removeChild(modal);

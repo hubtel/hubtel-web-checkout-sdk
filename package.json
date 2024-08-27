@@ -1,6 +1,6 @@
 {
   "name": "@hubteljs/checkout",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A JavaScript SDK for handling checkout processes.",
   "main": "dist/CheckoutSdk.js",
   "types": "dist/CheckoutSdk.d.ts",
